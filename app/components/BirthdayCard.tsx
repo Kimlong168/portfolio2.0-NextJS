@@ -247,7 +247,7 @@ const TiltCard = () => {
           setShowQrCode((prev) => !prev);
         }}
       >
-        {showQrCode && <Aba setShowQrCode={setShowQrCode} />}
+        {showQrCode && <Aba />}
       </div>
     </>
   );

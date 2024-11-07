@@ -20,15 +20,21 @@ interface Post {
   };
 }
 
-interface BlogDetailPageProps {
-  params: {
-    id: string;
-  };
-}
+// interface BlogDetailPageProps {
+//   params: {
+//     id: string;
+//   };
+// }
 
 const postList: Post[] = [];
 
-const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ params }) => {
+const BlogDetailPage = ({
+  params,
+}: {
+  params: {
+    id: string;
+  };
+}) => {
   const { id } = params; // This is how you can access the post ID from the URL
   const [tags, setTags] = useState<string[]>([]);
   const [postDetails, setPostDetails] = useState<Post | null>(null);

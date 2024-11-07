@@ -21,10 +21,6 @@ interface Post {
 }
 
 interface BlogDetailPageProps {
-  postList: Post[];
-  setDarkMode: (darkMode: boolean) => void;
-  darkMode: boolean;
-  setSearchQuery: (query: string) => void;
   params: {
     id: string;
   };

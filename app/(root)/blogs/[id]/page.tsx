@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 
 import Markdown from "markdown-to-jsx";
 import SharingButton from "../../../components/SharingButton";
@@ -28,14 +28,8 @@ interface Post {
 
 const postList: Post[] = [];
 
-const BlogDetailPage = ({
-  params,
-}: {
-  params: {
-    id: string;
-  };
-}) => {
-  const { id } = params; // This is how you can access the post ID from the URL
+const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params); // This is how you can access the post ID from the URL
   const [tags, setTags] = useState<string[]>([]);
   const [postDetails, setPostDetails] = useState<Post | null>(null);
 

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Header from "../components/Header";
-import GoToTop from "../components/GoToTop";
+
 import { useTheme } from "../context/ThemeContext";
 const Layout = ({
   children,
@@ -14,7 +14,7 @@ const Layout = ({
     <main className={style}>
       <Header />
       {children}
-      <GoToTop />
+   
     </main>
   );
 };

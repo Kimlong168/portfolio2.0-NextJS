@@ -8,6 +8,7 @@ import Author from "../../../components/Author";
 import BlogRelated from "../../../components/BlogRelated";
 import Link from "next/link";
 import Image from "next/image";
+import GoToTop from "@/app/components/GoToTop";
 interface Post {
   id: string;
   title: string;
@@ -144,6 +145,7 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
           <Author />
         </div>
       )}
+      <GoToTop />
 
       <div>
         <BlogRelated

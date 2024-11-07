@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import { doc, getDoc } from "firebase/firestore"; // Import Firestore functions
 import { db } from "../../../lib/firebase"; // Import your Firebase configuration
 
@@ -24,8 +24,8 @@ interface Post {
   };
 }
 
-const BlogDetailPage = ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
   const [tags, setTags] = useState<string[]>([]);
   const [postDetails, setPostDetails] = useState<Post | null>(null);
 

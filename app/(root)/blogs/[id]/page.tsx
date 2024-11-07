@@ -1,5 +1,7 @@
 "use client";
-import { useEffect, useState, use } from "react";
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore"; // Import Firestore functions
+import { db } from "../../../lib/firebase"; // Import your Firebase configuration
 
 import Markdown from "markdown-to-jsx";
 import SharingButton from "../../../components/SharingButton";
@@ -9,6 +11,7 @@ import BlogRelated from "../../../components/BlogRelated";
 import Link from "next/link";
 import Image from "next/image";
 import GoToTop from "@/app/components/GoToTop";
+
 interface Post {
   id: string;
   title: string;
@@ -21,27 +24,31 @@ interface Post {
   };
 }
 
-// interface BlogDetailPageProps {
-//   params: {
-//     id: string;
-//   };
-// }
-
-const postList: Post[] = [];
-
-const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
-  const { id } = use(params); // This is how you can access the post ID from the URL
+const BlogDetailPage = ({ params }: { params: { id: string } }) => {
+  const { id } = params;
   const [tags, setTags] = useState<string[]>([]);
   const [postDetails, setPostDetails] = useState<Post | null>(null);
 
   useEffect(() => {
-    const post = postList?.find((post) => post.id === id);
-    if (post) {
-      setPostDetails(post);
-      const tempTags = post.tags ? post.tags.split(",") : [];
-      setTags(tempTags);
-    }
-  }, [postList, id]);
+    const fetchPost = async () => {
+      try {
+        const docRef = doc(db, "posts", id); // Reference to the post document
+        const docSnap = await getDoc(docRef); // Fetch the document
+
+        if (docSnap.exists()) {
+          const post = docSnap.data() as Post;
+          setPostDetails(post);
+          setTags(post.tags ? post.tags.split(",") : []);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching post:", error);
+      }
+    };
+
+    fetchPost();
+  }, [id]);
 
   const colors = [
     "bg-red-600",
@@ -60,13 +67,7 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
 
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  if (!postDetails) {
-    return <div>No Blogs</div>;
-  }
+  if (!postDetails) return <div className="bg-black min-h-screen"></div>;
 
   const { title: postTitle, content, date, img, author } = postDetails;
 
@@ -77,7 +78,6 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
         <meta name="description" content={`${postTitle}`} />
       </Helmet>
 
-      {/*  */}
       <div id="detail" className="container mx-auto">
         <div className="mb-5">
           <Link href="/blogs">
@@ -147,13 +147,8 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
       )}
       <GoToTop />
 
-      <div>
-        <BlogRelated
-          postList={postList}
-          tags={tags}
-          id={`${id}`}
-          scrollTop={scrollTop}
-        />
+      <div className="pb-12">
+        <BlogRelated tags={tags} id={`${id}`} />
       </div>
     </div>
   );

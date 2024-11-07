@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import BlogWrapper from "../../components/BlogWrapper";
 import BlogInBlogPage from "../../components/BlogInBlogPage";
 import Head from "next/head"; // Next.js built-in Head component
+import { db } from "../../lib/firebase";
+import { getDocs, collection, query, orderBy } from "firebase/firestore";
 
 interface Post {
   id: string;
@@ -16,7 +19,26 @@ interface Post {
 
 const BlogPage = () => {
   // Replace this with actual logic to fetch posts
-  const postList: Post[] = []; // This should ideally come from an API or static props
+
+  const [postList, setPostList] = useState<Post[]>([]);
+
+  const postCollectionRef = collection(db, "posts");
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const data = await getDocs(
+          query(postCollectionRef, orderBy("createdAt", "desc"))
+        );
+        setPostList(
+          data.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Post))
+        );
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    getPosts();
+  }, []);
 
   // Check if postList is empty and handle it
   if (postList.length === 0) {
@@ -27,13 +49,8 @@ const BlogPage = () => {
     );
   }
 
-  const darkMode = true;
-  const style = darkMode ? "bg-black" : "bg-site";
-
   return (
-    <div
-      className={`${style} bg-no-repeat bg-cover min-h-screen overflow-hidden`}
-    >
+    <div className={`bg-no-repeat bg-cover min-h-screen overflow-hidden pb-24`}>
       {/* Head component for managing the document head in Next.js */}
       <Head>
         <title>Kimlong Chann | Blogs</title>

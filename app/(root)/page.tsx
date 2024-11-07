@@ -26,7 +26,6 @@ interface Post {
 }
 
 const Home: React.FC = () => {
-  const darkMode = true;
   const [postList, setPostList] = useState<Post[]>([]);
 
   const postCollectionRef = collection(db, "posts");
@@ -51,7 +50,7 @@ const Home: React.FC = () => {
   return (
     <div className={`overflow-hidden`}>
       <Banner />
-      <Nav darkMode={darkMode} />
+      <Nav />
       <About />
       <Services />
       <Work />

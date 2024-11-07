@@ -5,13 +5,11 @@ import { BsClipboardData, BsBriefcase, BsChatSquare } from "react-icons/bs";
 import { FaBlog } from "react-icons/fa";
 // link
 import { Link } from "react-scroll";
+import { useTheme } from "../context/ThemeContext";
 
-interface NavProps {
-  darkMode: boolean; // A boolean to indicate if dark mode is enabled
-}
-
-const Nav: React.FC<NavProps> = ({ darkMode }) => {
-  const border = darkMode ? "border-white/20 border" : "";
+const Nav: React.FC = () => {
+  const { isDarkMode } = useTheme();
+  const border = isDarkMode ? "border-white/20 border" : "";
   return (
     <nav className="fixed bottom-2 lg:bottom-8 w-full overflow-hidden z-50">
       <div className="container mx-auto">

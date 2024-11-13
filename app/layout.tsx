@@ -9,10 +9,10 @@ export const metadata: Metadata = {
     title: "Kimlong Chann, a fullstack web developer",
     description: "Welcome to my portfolio website.",
 
-    url: "https://www.yoursite.com",
+    url: "https://kimlongchann.vercel.app/",
     images: [
       {
-        url: "/logo.png", // Path to logo in the public folder
+        url: "/kimlong.jpg", // Path to logo in the public folder
         width: 1200,
         height: 630,
         alt: "Kimlong Chann logo",

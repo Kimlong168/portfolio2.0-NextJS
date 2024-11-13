@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import img1 from "../assets/portfolio-img3.png";
 import BlogBox from "./BlogBox";
@@ -17,7 +18,7 @@ interface BlogWrapperProps {
 }
 
 const BlogWrapper: React.FC<BlogWrapperProps> = ({ postList }) => {
-  const [showResult, setShowResult] = React.useState(false);
+  const [showResult, setShowResult] = useState(false);
   return (
     <div>
       <div className="container mx-auto mt-20">

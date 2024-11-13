@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 // motion
@@ -5,25 +6,36 @@ import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../utils/variants";
 import Image from "next/image";
-interface BlogBoxProps {
-  image: string; // Assuming the image is a URL or path as a string
-  author: string; // Assuming author is a string
-  title: string; // Assuming title is a string
-  direction: "left" | "right" | "up" | "down"; // Example: could be a limited set of values like 'left', 'right', or 'center'
-  delay: number; // Assuming delay is a number (e.g., in milliseconds)
-  amount: number; // Assuming amount is a number
-  id: string; // Assuming id is a number
-  latest?: boolean; // Optional boolean prop, defaulting to false if not provided
-}
 
+// interface BlogBoxProps {
+//   image: string; // Assuming the image is a URL or path as a string
+//   author: string; // Assuming author is a string
+//   title: string; // Assuming title is a string
+//   // Example: could be a limited set of values like 'left', 'right', or 'center'
+//   delay: number; // Assuming delay is a number (e.g., in milliseconds)
+//   amount: number; // Assuming amount is a number
+//   id: string; // Assuming id is a number
+//   latest?: boolean; // Optional boolean prop, defaulting to false if not provided
+// }
+
+interface BlogBoxProps {
+  id: string;
+  direction: "left" | "right" | "up" | "down";
+  delay: number;
+  amount: number;
+  author: string;
+  image: string;
+  title: string;
+  latest?: boolean;
+}
 const BlogBox: React.FC<BlogBoxProps> = ({
+  id,
   image,
   author,
   title,
   direction,
   delay,
   amount,
-  id,
   latest = false,
 }) => {
   const style = !latest ? { height: "250px" } : { height: "320px" };

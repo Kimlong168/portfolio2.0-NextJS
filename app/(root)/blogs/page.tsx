@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState } from "react";
+// "use client";
+import React from "react";
 import BlogWrapper from "../../components/BlogWrapper";
 import BlogInBlogPage from "../../components/BlogInBlogPage";
 import Head from "next/head"; // Next.js built-in Head component
@@ -12,33 +12,58 @@ interface Post {
   content: string;
   img?: string;
   length: number;
+  createdAt: string;
   author: {
     name: string;
   };
 }
 
-const BlogPage = () => {
+const BlogPage = async () => {
   // Replace this with actual logic to fetch posts
 
-  const [postList, setPostList] = useState<Post[]>([]);
-
+  // const [postList, setPostList] = useState<Post[]>([]);
+  let postList: Post[] = [];
   const postCollectionRef = collection(db, "posts");
-  useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const data = await getDocs(
-          query(postCollectionRef, orderBy("createdAt", "desc"))
-        );
-        setPostList(
-          data.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Post))
-        );
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
+  try {
+    const data = await getDocs(
+      query(postCollectionRef, orderBy("createdAt", "desc"))
+    );
 
-    getPosts();
-  }, []);
+    postList = data.docs.map((doc) => {
+      const docData = doc.data();
+
+      // Convert Firestore Timestamp to JS Date
+      const createdAt = docData.createdAt?.toDate
+        ? docData.createdAt.toDate()
+        : null;
+
+      return {
+        ...docData,
+        id: doc.id,
+        createdAt,
+      } as Post;
+    });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
+
+  // useEffect(() => {
+  //   const postCollectionRef = collection(db, "posts");
+  //   const getPosts = async () => {
+  //     try {
+  //       const data = await getDocs(
+  //         query(postCollectionRef, orderBy("createdAt", "desc"))
+  //       );
+  //       setPostList(
+  //         data.docs.map((doc) => ({ ...doc.data(), id: doc.id } as Post))
+  //       );
+  //     } catch (error) {
+  //       console.error("Error fetching posts:", error);
+  //     }
+  //   };
+
+  //   getPosts();
+  // }, []);
 
   // Check if postList is empty and handle it
   if (postList.length === 0) {

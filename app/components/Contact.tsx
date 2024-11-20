@@ -67,7 +67,7 @@ const Contact = () => {
               href="https://t.me/kimlongchann_bot"
               className="underline underline-thickness-thin"
             >
-              Click here!
+              Click me!
             </Link>
           </motion.div>
         </motion.div>

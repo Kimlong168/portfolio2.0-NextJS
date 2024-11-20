@@ -38,3 +38,5 @@ export const fadeIn = (direction: Direction, delay: number): FadeInVariant => {
     },
   };
 };
+
+

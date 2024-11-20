@@ -110,7 +110,7 @@ const About = () => {
                 My Portfolio
               </a> */}
               <div onClick={() => setShowCVOption(true)}>
-                <GradientBtn content="Download My CV" link="#" />
+                <GradientBtn content="Download My CV" />
               </div>
             </div>
           </motion.div>

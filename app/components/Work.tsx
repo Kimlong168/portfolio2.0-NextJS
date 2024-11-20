@@ -105,9 +105,9 @@ const Work = () => {
         <div className="mt-10">
           <div className="text-gradient flex justify-between items-center">
             <span className="font-bold">All Projects</span>
-            <span className="w-8 h-8 cursor-pointer bg-white/20 grid place-items-center rounded-full">
+            {/* <span className="w-8 h-8 cursor-pointer bg-white/20 grid place-items-center rounded-full">
               ✖️
-            </span>
+            </span> */}
           </div>
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto mt-5">
             <AchievementBox

@@ -299,6 +299,34 @@ const Work = () => {
               image={todolist2}
               title="Jquery - To Do List"
             />
+
+            <AchievementBox
+              direction="right"
+              delay={0.2}
+              amount={0.3}
+              pretitle="Telegram Bot"
+              url="https://t.me/kimlong_text_to_speech_bot"
+              image={linkTree}
+              title="Text To Speech Bot (Multi languages)"
+            />
+            <AchievementBox
+              direction="right"
+              delay={0.2}
+              amount={0.3}
+              pretitle="Telegram Bot"
+              url="https://t.me/kimlong_qr_maker_bot"
+              image={sportsNews}
+              title="QR Code Maker Bot"
+            />
+            <AchievementBox
+              direction="right"
+              delay={0.2}
+              amount={0.3}
+              pretitle="Telegram Bot"
+              url="https://t.me/khmer_unicode_converter_bot"
+              image={todolist2}
+              title="Khmer Limon Converter Bot"
+            />
           </div>
         </div>
       </div>

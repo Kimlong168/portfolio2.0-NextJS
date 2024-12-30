@@ -11,6 +11,7 @@ import BlogRelated from "../../../components/BlogRelated";
 import Link from "next/link";
 import Image from "next/image";
 import GoToTop from "@/app/components/GoToTop";
+// import Loading from "@/app/components/Loading";
 
 interface Post {
   id: string;
@@ -72,6 +73,7 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
   const { title: postTitle, content, date, img, author } = postDetails;
 
   return (
+    // <Suspense fallback={<Loading />}>
     <div>
       <Helmet>
         <title>Blog | {postTitle}</title>
@@ -151,6 +153,7 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
         <BlogRelated tags={tags} id={`${id}`} />
       </div>
     </div>
+    // </Suspense>
   );
 };
 

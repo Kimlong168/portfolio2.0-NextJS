@@ -31,6 +31,9 @@ import linkTree from "../assets/linkTree.png";
 import sportsNews from "../assets/sportsNews.png";
 import pos from "../assets/php_pos.png";
 import ec from "../assets/ec.png";
+import textToSpeechBot from "../assets/textToSpeechBot.jpg";
+import qrBot from "../assets/qrbot.jpg";
+import textConverterBot from "../assets/textConverterBot.jpg";
 import { Link } from "react-scroll";
 const Work = () => {
   // const [showProjects, setShowProjects] = useState(true);
@@ -306,7 +309,7 @@ const Work = () => {
               amount={0.3}
               pretitle="Telegram Bot"
               url="https://t.me/kimlong_text_to_speech_bot"
-              image={linkTree}
+              image={textToSpeechBot}
               title="Text To Speech Bot (Multi languages)"
             />
             <AchievementBox
@@ -315,7 +318,7 @@ const Work = () => {
               amount={0.3}
               pretitle="Telegram Bot"
               url="https://t.me/kimlong_qr_maker_bot"
-              image={sportsNews}
+              image={qrBot}
               title="QR Code Maker Bot"
             />
             <AchievementBox
@@ -324,7 +327,7 @@ const Work = () => {
               amount={0.3}
               pretitle="Telegram Bot"
               url="https://t.me/khmer_unicode_converter_bot"
-              image={todolist2}
+              image={textConverterBot}
               title="Khmer Limon Converter Bot"
             />
           </div>

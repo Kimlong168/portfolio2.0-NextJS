@@ -64,12 +64,12 @@ const About = () => {
               </div>
             </div>
             <p className="mb-6">
-              Hi there, My name is Chann Kimlong. I am a web developer. I can
-              provide clean code and pixel perfect design. I also make the
-              website more & more interactive with web animations. A responsive
-              design makes your website accessible to all users,regardless of
-              their device. You can contact me whenever you need help, i will
-              try my best to deal with your problem as much as possible.
+              Hi there, My name is Chann Kimlong. I am a fullstack web developer
+              and also a freelancer. I am a fourth-year Computer Science student
+              at the Cambodia Academy of Digital Technology, specializing in
+              Software Engineering. With a passion for web development, I have
+              gained hands-on experience in technologies like MongoDB,
+              Express.js, React.js, Node.js, Next.js, Tailwind CSS, and Laravel.
             </p>
             {/* stats */}
             <div className="flex gap-x-6 lg:gap-x-10 mb-12">

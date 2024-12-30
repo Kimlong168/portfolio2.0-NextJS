@@ -6,7 +6,7 @@ import Image from "next/image";
 // import Image from "../assets/avatar.svg";
 // icons
 import { FaGithub, FaFacebook, FaInstagram, FaTelegram } from "react-icons/fa";
-
+import { RxLinkedinLogo } from "react-icons/rx";
 // type animation
 import { TypeAnimation } from "react-type-animation";
 // motion
@@ -77,15 +77,11 @@ const Banner = () => {
               <Link href="https://github.com/Kimlong168" className="text-2xl">
                 <FaGithub />
               </Link>
-
               <Link
                 href="https://www.facebook.com/phnompenhcrown.fc.7?mibextid=ZbWKwL"
                 className="text-2xl"
               >
                 <FaFacebook />
-              </Link>
-              <Link href="https://t.me/kimlongchann_bot" className="text-2xl">
-                <FaTelegram />
               </Link>
               <Link
                 href="https://www.instagram.com/__kimlong/"
@@ -93,6 +89,15 @@ const Banner = () => {
               >
                 <FaInstagram />
               </Link>
+              <Link href="https://t.me/kimlongchann_bot" className="text-2xl">
+                <FaTelegram />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/chann-kimlong-267073282/?originalSubdomain=kh"
+                className="text-2xl"
+              >
+                <RxLinkedinLogo />
+              </Link>{" "}
             </motion.div>
             <motion.div
               variants={fadeIn("up", 0.7)}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
+
 export const metadata: Metadata = {
   title: "Kimlong Chann, a fullstack web developer",
   description: "Welcome to my portfolio website.",

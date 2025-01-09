@@ -273,11 +273,9 @@ const Contact = () => {
               name="message"
               rows={6}
               onChange={handleInputChange}
-              value={formData.message}
+              value={formData.message} // Controlled value
               className="w-full rounded-md px-4 border text-sm pt-2.5 outline-accent bg-transparent"
-            >
-              {formData.message}
-            </textarea>
+            />
 
             <button className="flex justify-end">
               <GradientBtn content="Send Message" />

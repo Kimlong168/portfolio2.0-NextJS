@@ -99,7 +99,7 @@ const TiltCard = () => {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen">
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -242,14 +242,10 @@ const TiltCard = () => {
           )}
         </div>
       </motion.div>
-      <div
-        onClick={() => {
-          setShowQrCode((prev) => !prev);
-        }}
-      >
+      <div onClick={() => setShowQrCode((prev) => !prev)}>
         {showQrCode && <Aba />}
       </div>
-    </>
+    </div>
   );
 };
 

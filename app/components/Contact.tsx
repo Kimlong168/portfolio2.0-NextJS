@@ -57,12 +57,10 @@ const Contact = () => {
       await sendTelegramMessage(
         `
     *New Message Received!*
-      
-    👤 *Name:* ${formData.name}
-    📧 *Email:* ${formData.email}
-    📋 *Subject:* ${formData.subject}
-      
-    📝 *Message:*
+    \n👤 Name: ${formData.name}
+    \n📧 Email: ${formData.email}
+    \n📋 Subject: ${formData.subject}
+    \n📝 Message:
       ${formData.message}
       `
       );
@@ -277,9 +275,9 @@ const Contact = () => {
               className="w-full rounded-md px-4 border text-sm pt-2.5 outline-accent bg-transparent"
             />
 
-            <button className="flex justify-end">
+            <div className="flex justify-end">
               <GradientBtn content="Send Message" />
-            </button>
+            </div>
           </form>
         </div>
       </section>

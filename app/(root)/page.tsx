@@ -13,6 +13,7 @@ import Achievement from "../components/Achievement";
 import BirthdayCard from "../components/BirthdayCard";
 import { db } from "../lib/firebase";
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
+import Payment from "../components/Payment";
 
 // Define a TypeScript interface for Post data
 interface Post {
@@ -58,6 +59,7 @@ const Home: React.FC = () => {
       <Blog postList={postList} />
       <Gallery />
       <BirthdayCard />
+      <Payment />
       <Contact />
     </div>
   );

@@ -8,9 +8,11 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
+      bakong: "Nunito Sans",
       primary: "Orbitron",
       secondary: "Rajdhani",
-      tertiary: "Aldrich",
+      tertiary: "Aldrich"
+
     },
     container: {
       padding: {
@@ -27,6 +29,7 @@ const config: Config = {
       colors: {
         primary: "#0a0a0a",
         accent: "#B809C3",
+        "bakong-red": "#E1232E",
       },
       backgroundImage: {
         site: "url('/site-bg.jpg')",

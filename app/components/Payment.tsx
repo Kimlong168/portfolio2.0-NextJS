@@ -1,4 +1,6 @@
 "use client";
+// @ts-ignore: Ignore the error regarding khqrData impo
+
 import axios from "axios";
 import QRCode from "qrcode";
 import { BakongKHQR, khqrData, IndividualInfo, SourceInfo } from "bakong-khqr";
@@ -208,8 +210,9 @@ export default function Payment() {
 
             {/* Title */}
             <h1 className="text-center text-2xl font-bold mb-4">
-              Payment System for Kimlong
+              Payment System for KimlongZ
             </h1>
+
 
             {/* Input Fields */}
             <form onSubmit={generateQrcode} className="space-y-4">

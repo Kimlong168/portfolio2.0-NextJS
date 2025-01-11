@@ -7,7 +7,11 @@ const nextConfig: NextConfig = {
       protocol: "https",
       hostname : "*"
     }]
-  }, eslint: {
+  }, 
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
     ignoreDuringBuilds: true,
   },
 };

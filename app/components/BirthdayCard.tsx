@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-
+import { Link } from "react-scroll";
 import { useEffect, useState } from "react";
-import Aba from "./Aba";
 import Buble from "./Buble";
 const BirthdayCard = () => {
   return (
@@ -54,8 +53,6 @@ const TiltCard = () => {
   };
 
   //   card
-
-  const [showQrCode, setShowQrCode] = useState(false);
 
   const [countdown, setCountdown] = useState({
     days: 0,
@@ -109,11 +106,13 @@ const TiltCard = () => {
           transformStyle: "preserve-3d",
         }}
         className="relative h-96 rounded-xl"
-        onClick={() => {
-          setShowQrCode((prev) => !prev);
-        }}
       >
-        <div
+        <Link
+          activeClass="active"
+          smooth={true}
+          spy={true}
+          offset={0}
+          to="payment"
           style={{
             transform: "translateZ(75px)",
             transformStyle: "preserve-3d",
@@ -234,17 +233,14 @@ const TiltCard = () => {
                     </div>
                   </div>
                   <small className="text-center block mx-auto">
-                    📆 2024, 11 March
+                    📆 {year}, 11 March
                   </small>
                 </div>
               </div>
             </>
           )}
-        </div>
+        </Link>
       </motion.div>
-      <div onClick={() => setShowQrCode((prev) => !prev)}>
-        {showQrCode && <Aba />}
-      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 "use client";
-// @ts-ignore: Ignore the error regarding khqrData impo
+// @ts-expect-error-error: Ignore the error regarding khqrData import
 
 import axios from "axios";
 import QRCode from "qrcode";
@@ -185,7 +185,10 @@ export default function Payment() {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center text-white p-6">
+      <div
+        id="payment"
+        className="min-h-screen flex items-center justify-center text-white p-6"
+      >
         <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-black/20 border">
           <div>
             {/* Currency Toggle */}
@@ -212,7 +215,6 @@ export default function Payment() {
             <h1 className="text-center text-2xl font-bold mb-4">
               Payment System for KimlongZ
             </h1>
-
 
             {/* Input Fields */}
             <form onSubmit={generateQrcode} className="space-y-4">

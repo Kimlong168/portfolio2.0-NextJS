@@ -1,4 +1,4 @@
-// "use client";
+
 import React from "react";
 import BlogWrapper from "../../components/BlogWrapper";
 import BlogInBlogPage from "../../components/BlogInBlogPage";

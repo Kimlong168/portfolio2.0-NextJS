@@ -289,7 +289,7 @@ const Work = () => {
               delay={0.2}
               amount={0.3}
               pretitle="Web development"
-              url="https://k-news168.netlify.app/"
+              url="https://cadtboyloy.netlify.app/"
               image={sportsNews}
               title="Sports News"
             />
